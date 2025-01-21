@@ -1,0 +1,111 @@
+.login-page {
+  background-image: url('/assets/images/fondo-MarP.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+}
+/* Contenedor principal */
+.login-container {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+}
+
+/* Títulos */
+.login-container h1 {
+  color: #333;
+  font-size: 1.8rem;
+  margin-bottom: 1rem; /* Espacio entre el título y el subtítulo */
+}
+
+.login-container h2 {
+  color: #555;
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Input y formulario */
+.form-group {
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+label {
+  display: block;
+  font-size: 0.9rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+input {
+  width: 100%; /* Ocupa todo el ancho del contenedor */
+  padding: 0.7rem; /* Aumenta el espacio interno */
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  margin-top: 0.3rem; /* Espacio entre el label y el input */
+  margin-bottom: 1rem; /* Espacio entre inputs */
+  box-sizing: border-box;
+}
+
+input:focus {
+  border-color: #4facfe;
+  outline: none;
+  box-shadow: 0 0 3px rgba(79, 172, 254, 0.5);
+}
+
+/* Botón */
+button {
+  background: #4facfe;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 8px; /* Bordes más redondeados */
+  font-size: 1rem;
+  cursor: pointer;
+  width: 100%; /* Botón a lo ancho */
+  transition: background 0.3s ease; /* Animación suave */
+}
+
+button:hover:not(:disabled) {
+  background: #3a8be0;
+}
+
+/* Mensaje de error */
+.error-message {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+/* Sección de registro */
+.register-section {
+  margin-top: 20px; /* Espaciado respecto al formulario */
+  text-align: center; /* Centra el mensaje */
+}
+
+.register-message {
+  font-size: 14px; /* Tamaño más pequeño para el texto */
+  color: #333; /* Color oscuro para el mensaje */
+  margin-right: 5px; /* Espaciado entre el mensaje y el enlace */
+}
+
+.register-link {
+  font-size: 14px; /* Tamaño consistente con el mensaje */
+  color: #007bff; /* Azul para el enlace */
+  text-decoration: none; /* Sin subrayado */
+  cursor: pointer; /* Indica que es clicable */
+}
+
+.register-link:hover {
+  text-decoration: underline; /* Subrayado al pasar el cursor */
+}
