@@ -1,36 +1,64 @@
 .login-page {
-  background-image: url('/assets/images/fondo-MarP.jpg');
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
+  background-image: url('/assets/fondoP.jpg');
+  background-size: cover; /* Asegura que la imagen cubra todo el fondo */
+  background-position: center center; /* Centra la imagen en el contenedor */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+  height: 100vh; /* Asegura que el contenedor tenga al menos la altura de la pantalla */
+  width: 100vw; /* El ancho del contenedor será el ancho completo de la ventana */
+  position: relative; /* Necesario para colocar el filtro debajo del contenido */
   display: flex;
   justify-content: center;
   align-items: center;
   font-family: 'Arial', sans-serif;
   margin: 0;
+  overflow: hidden; /* Evita el scroll si la imagen se extiende más allá */
 }
+
+/* Filtro oscuro opcional para mejorar la visibilidad del contenido */
+.login-page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3); /* Filtro oscuro */
+  z-index: -1; /* Asegura que el filtro quede detrás del contenido */
+}
+
+/* Contenedor del formulario */
+.login-container {
+  z-index: 1; /* Asegura que el contenido esté por encima del filtro */
+  text-align: center;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.8); /* Fondo blanco semi-transparente para el formulario */
+  border-radius: 10px; /* Bordes redondeados */
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  .login-page {
+    background-size: cover; /* Asegura que se cubra el contenedor */
+  }
+  .login-container {
+    width: 90%; /* Ajusta el ancho para pantallas pequeñas */
+    padding: 15px;
+  }
+}
+
 /* Contenedor principal */
 .login-container {
-  background: #fff;
+  background: white; /* Fondo blanco para destacar el formulario */
   padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   max-width: 400px;
   width: 100%;
-}
-
-/* Títulos */
-.login-container h1 {
-  color: #333;
-  font-size: 1.8rem;
-  margin-bottom: 1rem; /* Espacio entre el título y el subtítulo */
-}
-
-.login-container h2 {
-  color: #555;
-  font-size: 1.5rem;
-  margin-bottom: 2rem;
+  z-index: 1;
+  text-align: center;
 }
 
 /* Input y formulario */
@@ -47,20 +75,21 @@ label {
 }
 
 input {
-  width: 100%; /* Ocupa todo el ancho del contenedor */
-  padding: 0.7rem; /* Aumenta el espacio interno */
+  width: 100%;
+  padding: 0.8rem;
   border: 1px solid #ddd;
-  border-radius: 5px;
+  border-radius: 8px;
   font-size: 1rem;
-  margin-top: 0.3rem; /* Espacio entre el label y el input */
-  margin-bottom: 1rem; /* Espacio entre inputs */
+  margin-top: 0.3rem;
+  margin-bottom: 1rem;
   box-sizing: border-box;
+  transition: border-color 0.3s ease; /* Transición suave */
 }
 
 input:focus {
   border-color: #4facfe;
   outline: none;
-  box-shadow: 0 0 3px rgba(79, 172, 254, 0.5);
+  box-shadow: 0 0 5px rgba(79, 172, 254, 0.5);
 }
 
 /* Botón */
@@ -69,11 +98,11 @@ button {
   color: white;
   padding: 0.8rem 1.5rem;
   border: none;
-  border-radius: 8px; /* Bordes más redondeados */
+  border-radius: 8px;
   font-size: 1rem;
   cursor: pointer;
-  width: 100%; /* Botón a lo ancho */
-  transition: background 0.3s ease; /* Animación suave */
+  width: 100%;
+  transition: background 0.3s ease;
 }
 
 button:hover:not(:disabled) {
@@ -89,23 +118,23 @@ button:hover:not(:disabled) {
 
 /* Sección de registro */
 .register-section {
-  margin-top: 20px; /* Espaciado respecto al formulario */
-  text-align: center; /* Centra el mensaje */
+  margin-top: 20px;
+  text-align: center;
 }
 
 .register-message {
-  font-size: 14px; /* Tamaño más pequeño para el texto */
-  color: #333; /* Color oscuro para el mensaje */
-  margin-right: 5px; /* Espaciado entre el mensaje y el enlace */
+  font-size: 14px;
+  color: #333;
+  margin-right: 5px;
 }
 
 .register-link {
-  font-size: 14px; /* Tamaño consistente con el mensaje */
-  color: #007bff; /* Azul para el enlace */
-  text-decoration: none; /* Sin subrayado */
-  cursor: pointer; /* Indica que es clicable */
+  font-size: 14px;
+  color: #007bff;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .register-link:hover {
-  text-decoration: underline; /* Subrayado al pasar el cursor */
+  text-decoration: underline;
 }

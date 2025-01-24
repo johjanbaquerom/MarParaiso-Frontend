@@ -1,0 +1,14 @@
+<div class="upload-container">
+    <h3>Subir Imagen del Producto</h3>
+    
+    <form (ngSubmit)="onSubmit(productId)" enctype="multipart/form-data">
+      <label for="fileInput">Seleccionar imagen:</label>
+      <input type="file" id="fileInput" (change)="onFileSelected($event)" />
+      <button type="submit" [disabled]="!selectedFile">Subir Imagen</button>
+    </form>
+  
+    <div *ngIf="imageUrl">
+      <h4>Vista previa de la imagen subida:</h4>
+      <img [src]="imageUrl" alt="Vista previa de la imagen" width="200"/>
+    </div>
+  </div>

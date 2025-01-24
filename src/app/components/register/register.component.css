@@ -1,35 +1,59 @@
-.register-page {
-  background: url('https://source.unsplash.com/1920x1080/?nature') no-repeat center center/cover;
-  height: 100vh;
+.page {
+  background-image: url('/assets/fondoP.jpg'); /* Imagen de fondo */
+  background-size: cover; /* Asegura que la imagen cubra todo el fondo */
+  background-position: center center; /* Centra la imagen */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+  height: 100vh; /* Asegura que ocupe al menos la altura de la pantalla */
+  width: 100vw; /* El contenedor ocupa todo el ancho de la ventana */
+  position: relative; /* Necesario para colocar el filtro debajo del contenido */
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: center; /* Centra el contenido horizontalmente */
+  align-items: center; /* Centra el contenido verticalmente */
   font-family: 'Arial', sans-serif;
-  padding: 1rem;
+  margin: 0;
+  overflow: hidden; /* Evita el scroll si la imagen se extiende más allá */
 }
 
-.register-container {
-  background: rgba(255, 255, 255, 0.95);
-  padding: 2rem;
-  border-radius: 15px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-  text-align: center;
-  max-width: 450px;
+/* Filtro oscuro para mejorar la visibilidad */
+.page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3); /* Filtro oscuro */
+  z-index: -1; /* Asegura que el filtro quede detrás del contenido */
 }
 
-.register-container h2 {
+/* Contenedor del formulario de login y registro */
+.container {
+  z-index: 1;
+  text-align: center;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.8); /* Fondo blanco semi-transparente */
+  border-radius: 10px;
+  width: 100%;
+  max-width: 450px; /* Máximo ancho del formulario */
+  box-sizing: border-box;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Sombra para dar efecto de profundidad */
+}
+
+/* Títulos y subtítulos */
+.container h2 {
   font-size: 2rem;
   color: #333;
   margin-bottom: 0.5rem;
+  font-weight: bold;
 }
 
-.register-container p {
+.container p {
   font-size: 1rem;
   color: #555;
   margin-bottom: 1.5rem;
 }
 
+/* Estilos para los inputs */
 .form-group {
   margin-bottom: 1.5rem;
   text-align: left;
@@ -50,6 +74,7 @@ input {
   border-radius: 8px;
   font-size: 1rem;
   transition: all 0.3s ease;
+  margin-bottom: 0.8rem;
 }
 
 input:focus {
@@ -58,9 +83,10 @@ input:focus {
   box-shadow: 0 0 6px rgba(79, 172, 254, 0.5);
 }
 
+/* Estilo del botón */
 button {
   background: #4facfe;
-  color: #fff;
+  color: white;
   padding: 0.8rem 1.5rem;
   border: none;
   border-radius: 8px;
@@ -80,31 +106,43 @@ button:disabled {
   cursor: not-allowed;
 }
 
+/* Estilos para los mensajes de error */
 .error {
   color: red;
   font-size: 0.85rem;
   margin-top: 0.3rem;
 }
 
+/* Estilo del mensaje de redirección a login */
 .register-section {
-  margin-top: 20px; /* Espaciado respecto al formulario */
-  text-align: center; /* Centra el mensaje */
+  margin-top: 20px;
+  text-align: center;
 }
 
 .register-message {
-  font-size: 14px; /* Tamaño más pequeño para el texto */
-  color: #333; /* Color oscuro para el mensaje */
-  margin-right: 5px; /* Espaciado entre el mensaje y el enlace */
+  font-size: 14px;
+  color: #333;
+  margin-right: 5px;
 }
 
 .register-link {
-  font-size: 14px; /* Tamaño consistente con el mensaje */
-  color: #007bff; /* Azul para el enlace */
-  text-decoration: none; /* Sin subrayado */
-  cursor: pointer; /* Indica que es clicable */
+  font-size: 14px;
+  color: #007bff;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .register-link:hover {
-  text-decoration: underline; /* Subrayado al pasar el cursor */
+  text-decoration: underline;
 }
 
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  .page {
+    background-size: cover; /* Asegura que la imagen cubra el contenedor */
+  }
+  .container {
+    width: 90%; /* Ajusta el ancho para pantallas pequeñas */
+    padding: 15px;
+  }
+}

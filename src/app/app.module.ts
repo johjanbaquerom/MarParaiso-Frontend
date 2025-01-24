@@ -12,3 +12,4 @@ import { RouterModule } from '@angular/router';  // Importa RouterModule
 export class AppComponent {
   title = 'Mar_Paraiso';
 }
+

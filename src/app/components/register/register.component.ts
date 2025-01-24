@@ -12,6 +12,8 @@ import { Router } from '@angular/router';
   imports: [CommonModule, ReactiveFormsModule]
 })
 export class RegisterComponent {
+  usernameError: string | undefined;
+  generalError: string | undefined;
 
 navigateToLogin() {
 
@@ -41,24 +43,22 @@ navigateToLogin() {
 
   // Función que se ejecuta cuando el formulario se envía
   onSubmit() {
-    if (this.registerForm.valid) {
-      const { username, email, password } = this.registerForm.value;
-      const user = { username, email, password };
-
-      // Llamada al servicio de registro
-      this.authService.register(user).subscribe({
-        next: (response: any) => {
-          console.log('Registro exitoso', response);
-          // Aquí puedes redirigir a la página de login o a cualquier otra
+      if (this.registerForm.invalid) {
+        return;
+      }
+    
+      const registerData = this.registerForm.value;
+    
+      this.authService.register(registerData).subscribe(
+        (response) => {
+          console.log('Registro exitoso:', response);
         },
-        error: (err: any) => {
-          console.error('Error en el registro', err);
+        (error) => {
+          console.error('Error en el registro:', error);
+          alert(error.error);  // Muestra el error en la interfaz de usuario
         }
-      });
-    } else {
-      console.error('El formulario no es válido');
+      );
     }
-  }
 
 }
 

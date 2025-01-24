@@ -12,6 +12,8 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
+usernameError: any;
+generalError: any;
 
   navigateToRegister() {
     console.log('Botón de registro presionado');
